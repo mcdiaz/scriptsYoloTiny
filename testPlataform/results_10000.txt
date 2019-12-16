@@ -1,0 +1,56 @@
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_952(4).jpg: Predicted in 0.749624 seconds.
+car: 100%
+0.439281 0.045931 0.073775 0.075235 
+car: 99%
+0.939482 0.264720 0.114947 0.115311 
+car: 88%
+0.887379 0.209657 0.107383 0.086791 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_90.jpg: Predicted in 0.688503 seconds.
+car: 100%
+0.888261 0.213215 0.119516 0.090723 
+Enter Image Path: /home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_901(5).jpg: Predicted in 0.694846 seconds.
+car: 100%
+0.889885 0.209337 0.109758 0.093704 
+car: 89%
+0.388274 0.023312 0.048814 0.036973 
+Enter Image Path: /home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_90(3).jpg: Predicted in 0.712364 seconds.
+car: 100%
+0.438105 0.045492 0.074124 0.076979 
+car: 100%
+0.887962 0.214730 0.115655 0.090893 
+person: 79%
+0.489905 0.683821 0.078190 0.264376 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_889(5).jpg: Predicted in 0.708818 seconds.
+car: 100%
+0.889649 0.210117 0.111229 0.092704 
+car: 89%
+0.387996 0.023333 0.048948 0.036940 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_88.jpg: Predicted in 0.705211 seconds.
+car: 100%
+0.888092 0.213203 0.119082 0.091083 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_891.jpg: Predicted in 0.643675 seconds.
+car: 100%
+0.888098 0.214198 0.119235 0.089308 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_89(3).jpg: Predicted in 0.661809 seconds.
+car: 100%
+0.438293 0.045808 0.073748 0.076532 
+car: 100%
+0.887752 0.214906 0.116587 0.091871 
+person: 93%
+0.516040 0.751621 0.071843 0.263011 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_89(3).jpg: Predicted in 0.736487 seconds.
+car 100% 0.438293 0.045808 0.073748 0.076532 
+car 100% 0.887752 0.214906 0.116587 0.091871 
+person 93% 0.516040 0.751621 0.071843 0.263011 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_89(3).jpg: Predicted in 6.801095 seconds.
+car 100% 0.438293 0.045808 0.073748 0.076532 
+car 100% 0.887752 0.214906 0.116587 0.091871 
+person 93% 0.516040 0.751621 0.071843 0.263011 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_89(3).jpg: Predicted in 1.915621 seconds.
+car 100% 0.438293 0.045808 0.073748 0.076532 
+car 100% 0.887752 0.214906 0.116587 0.091871 
+person 93% 0.516040 0.751621 0.071843 0.263011 
+/home/leodominguez/Desktop/YoloBelgrano2-Dia/frame_89(3).jpg: Predicted in 0.850035 seconds.
+car 100% 0.438293 0.045808 0.073748 0.076532 
+car 100% 0.887752 0.214906 0.116587 0.091871 
+person 93% 0.516040 0.751621 0.071843 0.263011 

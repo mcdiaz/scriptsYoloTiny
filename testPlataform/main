@@ -1,0 +1,105 @@
+import os
+import queue
+import sys
+from collections import namedtuple
+import numpy as np
+from io import StringIO
+import csv
+from collections import deque
+from numpy import *
+
+class boxClassif:
+    def __init__(self,classif, pred, x, y, w, h):
+        self.c=classif
+        self.p=pred
+        self.x=x
+        self.y=y
+        self.w=w
+        self.h=h
+
+#los input van a hacer dos files .txt que contengan los objetos detectados en los frames.
+#primer parametro del output de la red densa y el 2do el output de la red tiny
+
+truthContenido=open('detect.txt','r').readlines()
+arrTruth=[]
+
+testContenido=open('output.txt','r').readlines()
+arrTest=[]
+
+def loadConteiner(conteiner, arrCont, inicLine):
+    Class=[]
+    Predict=[]
+    X=[]
+    Y=[]
+    W=[]
+    H=[]
+    for i in range(inicLine,len(conteiner),1):
+        #separa los atributos por columnas separadas por tabulacion y guarda la posicion
+        Class=conteiner[i].find('\t')
+        pred=conteiner[i].find('\t',Class+1)
+        X=conteiner[i].find('\t',pred+1)
+        Y=conteiner[i].find('\t',X+1)
+        W=conteiner[i].find('\t',Y+1)
+        H=conteiner[i].find('\t',W+1)
+        #guarda el valor referenciado a la posicion
+        valClass=(conteiner[i][0:Class])
+        valPred=(conteiner[i][Class+1:pred])
+        valX=float(conteiner[i][pred+1:X])
+        valY=float(conteiner[i][X+1:Y])
+        valW=float(conteiner[i][Y+1:W])
+        valH=float(conteiner[i][W+1:H])
+        #objeto detectado en box que posee los atributos por columna
+        boxC=boxClassif(valClass, valPred, valX*100, valY*100, valW*100, valH*100)
+        arrCont.append(boxC)#agrega el objeto detectado a lo ultimo
+
+loadConteiner(testContenido, arrTest, 0)#Por la salida de yolov3-tiny saltea la primer linea
+loadConteiner(truthContenido, arrTruth, 0)#Si es la salida de la densa, es la salida que se genera con el script Pred...
+#arrTest y arrTruth contienen por cada posicion un objeto de tipo boxClassif de la salida de test y de la orgiinal respectivamente
+#print(arrTruth[0].p)
+#print(arrTest[0].p)
+
+# utiliza misma logica de iou entre los bounding box detectados
+def overlap(x1, w1, x2, w2):
+    l1 = x1 - w1 / 2
+    l2 = x2 - w2 / 2
+    left = l2
+    if l1 > l2:
+        left = l1
+    r1 = x1 + w1 / 2
+    r2 = x2 + w2 / 2
+    right = r2
+    if r1 > r2:
+        right = r1
+    return right - left
+
+def intersection(a, b):
+    w = overlap(a.x, a.w, b.x, b.w)
+    h = overlap(a.y, a.h, b.y, b.h)
+    if w > 0 or h < 0:
+        return 0
+    area = w * h
+    return area
+
+def union(a, b):
+    i = intersection(a, b)
+    u = a.w * a.h + b.w * b.h - i
+    return u
+
+# iou~0.4 poor iou~0.7 good iou~0.9 excellent
+def   iou(a, b):
+    print(intersection(a,b))
+    return intersection(a, b) / union(a, b)
+
+
+def compareAllArrTest(truth, test):
+    for boxTruth in range(len(truth)):
+        for boxTest in range(len(test)):
+           # print(truth[boxTruth].x)
+            #print(test[boxTest].x)
+            resultIOU=iou(truth[boxTruth],test[boxTest])
+            print(resultIOU)
+            if(resultIOU>0.0):
+                print("True positive")
+                break
+
+compareAllArrTest(arrTruth,arrTest)
